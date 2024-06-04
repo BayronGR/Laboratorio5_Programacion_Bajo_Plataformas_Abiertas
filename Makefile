@@ -12,3 +12,9 @@ main.o: main.c double_list.h
 
 double_list.o: double_list.c double_list.h
 	$(CC) $(CFLAGS) -c double_list.c
+
+valgrind: $(EX)
+	valgrind --leak-check=full ./$(EX)
+
+clean:
+	rm -f *.o $(EX)
