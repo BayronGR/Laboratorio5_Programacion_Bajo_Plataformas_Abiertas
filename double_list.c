@@ -86,3 +86,42 @@ void delete_by_data(DoubleList* list, int data) {
     free(actual);
 }
 
+// Se busca el nodo por la data
+Nodo* search_by_data(DoubleList* list, int data) {
+    Nodo* actual = list->inicio;
+    while (actual != NULL && actual->data != data) {
+        actual = actual->siguiente;
+    }
+    return actual;
+}
+
+//Se imprime la lista hacia adelante
+void print_list_forward(DoubleList* list) {
+    Nodo* actual = list->inicio;
+    while (actual != NULL) {
+        printf("%d ", actual->data);
+        actual = actual->siguiente;
+    }
+    printf("\n");
+}
+
+//Se imprime la lista hacia atrás
+void print_list_backward(DoubleList* list) {
+    Nodo* actual = list->final;
+    while (actual != NULL) {
+        printf("%d ", actual->data);
+        actual = actual->anterior;
+    }
+    printf("\n");
+}
+
+// Se libera la lista
+void free_list(DoubleList* list) {
+    Nodo* actual = list->inicio;
+    while (actual != NULL) {
+        Nodo* siguiente = actual->siguiente;
+        free(actual);
+        actual = siguiente;
+    }
+    free(list);
+}
