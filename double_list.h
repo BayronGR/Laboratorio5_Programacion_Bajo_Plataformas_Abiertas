@@ -22,4 +22,4 @@ void print_list_forward(DoubleList* list);
 void print_list_backward(DoubleList* list);
 void free_list(DoubleList* list);
 
-#endif // DOUBLE_LIST_H
+#endif      // DOUBLE_LIST_H
